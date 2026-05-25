@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<h1>{{blog_detail.blog_title}}</h1>
+
+<img src="/media/{{blog_detail.blog_image}}" alt="{{blog_detail.blog_title}}-image">
+
+<p>{{blog_detail.blog_desc | safe}}</p>
+  
+{% endblock content %}

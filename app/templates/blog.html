@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<marquee onmouseover="stop()" onmouseout="start()" style ="color: aliceblue; padding-top: 15px; cursor: pointer;" behavior="scroll" direction="right" scrollamount = 10 loop = 'infinite' bgcolor = 'green' height = 50px hspace = 30px vspace = 20px >
+   {% for blog in blog_data %}
+
+    <a style="color: aliceblue;margin: 0 20px;" href="{% url 'blog' blog.blog_slug %}">{{blog.blog_title}}</a>
+        
+   {% endfor %}
+</marquee>
+
+<div id="blog" class="section-p1">
+    {% for blog in blog_data %}
+      
+    <div class="blog-container">
+        <div class="blog-image">
+            {% comment %} <img src="{% static 'media/blog.blog_image' %}" alt=""> {% endcomment %}
+            <img src="{{blog.blog_image.url}}" alt="">
+        </div>
+        <div class="blog-detail">
+            <h2>{{blog.blog_title}}</h2>
+            <p>{{blog.blog_desc | truncatewords_html:20 | safe }} </p>
+            <a href="{% url 'blog' blog.blog_slug %}">  <button class="white">Continue <i class="fa-solid fa-arrow-right arrow"></i> </button></a>    
+        </div>
+    </div>
+    
+    {% endfor %}
+</div>
+
+
+{% endblock content %}

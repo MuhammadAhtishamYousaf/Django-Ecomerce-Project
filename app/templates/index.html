@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+<body>
+    {% for n in course_list %}
+   <div class="main">
+        <h1 style="color : rgb(203, 191, 191)">{{forloop.counter}} - {{n}}</h1>
+        <!-- <h1 style="color : rgb(203, 191, 191)"> Welcome {{student}}</h1> -->
+    </div>
+    {% endfor %}
+
+    <br>
+    <table border="1px solid white" cellpadding = '10'>
+        <tr>
+            <th style="color: aliceblue;">Name</th>
+            <th style="color: aliceblue;">Phone Number</th>
+        </tr>
+        {% for student in student_details %}
+        <tr>
+            <td style="color: aliceblue;">{{ student.name }}</td>
+            <td style="color: aliceblue;">{{ student.phone }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% if numbers|length > 0 %}
+        {% for i in numbers%}
+            {% if i > 20 %}
+                <div style="color: aliceblue;">{{i}}</div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+         No Data found
+    {% endif %}
+</body>
+</html>

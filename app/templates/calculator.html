@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="form_container" style="margin: 0% 20%;">
+  <form method = 'post'>
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Value 1</label>
+      <input type="text" name = 'val1' class="form-control">
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+      <label>Opration</label>
+
+    <select class="form-control" name="opr" id="">
+      <option value="+"> + </option>
+      <option value="-"> - </option>
+      <option value="*"> * </option>
+      <option value="/"> / </option>
+    </select>
+
+    <div class="form-group">
+      <label>Value 2</label>
+      <input type="text" name = 'val2' class="form-control">
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+    <br>
+    <button class="btn btn-primary">Calculate</button>
+  </form>
+  <br>
+  <label for="">Output</label>
+  {% if c %}
+    
+  <input type="text" name="" id="" value="{{ c }}" class="form-control">
+  {% endif %}
+</div>
+{% endblock content %}

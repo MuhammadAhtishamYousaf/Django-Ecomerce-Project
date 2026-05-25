@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+<div class='container d-flex justify-content-center' >
+  <div class='login-div' style='width:25vw'>
+    <h1 class="text-center my-5">Login</h1>
+    {% for message in messages %}
+    <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} " role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+            <form method='POST' action="{% url 'Form_Testing' %}">
+              
+                {% csrf_token %}
+              
+                {{form}}
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            </div>
+          </div>
+          
+{% endblock content %}

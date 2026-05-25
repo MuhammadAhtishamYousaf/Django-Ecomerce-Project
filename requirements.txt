@@ -1,0 +1,4 @@
+django>=5.2.14
+django-autoslug>=1.9.9
+django-tinymce>=5.0.0
+gunicorn>=20.1.0

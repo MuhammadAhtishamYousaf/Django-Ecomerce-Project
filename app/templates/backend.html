@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900">
+     {% comment %} <link rel="stylesheet" href="{% static 'css/backend.css' %}"> {% endcomment %}
+     <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+              background: #e9e9e9;
+              color: #666666;
+              font-family:"DT Milagros";
+              background: url("https://cdn.pixabay.com/photo/2013/09/05/01/36/white-179005_1280.jpg") ;
+              background-position: center;
+              background-size: cover;
+              background-repeat: no-repeat; 
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+            }
+            a {
+              text-decoration: none;
+              color:white;
+            }
+            /* Pen Title */
+            .pen-title {
+              padding: 50px 0;
+              text-align: center;
+              letter-spacing: 2px;
+            }
+            .pen-title h1 {
+              margin: 0 0 20px;
+              font-size: 48px;
+              font-weight: 300;
+            }
+            .pen-title span {
+              font-size: 12px;
+            }
+            .pen-title span .fa {
+              color: #33b5e5;
+            }
+            .pen-title span a {
+              color: #33b5e5;
+              font-weight: 600;
+              text-decoration: none;
+            }
+            
+            /* Form Module */
+            .form-module {
+              position: relative;
+               background: url("/static/images/water-2748670_1920.png") ;
+              background-position: center;
+              background-size: cover; 
+              backdrop-filter: blur(35px);
+              max-width: 380px;
+              width: 100%;
+              border-top: 5px solid #33b5e5;
+              box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+              margin: 0 auto;
+            }
+            .form-module .toggle {
+              cursor: pointer;
+              position: absolute;
+              top: 0;
+              right: 0;
+              background: #33b5e5;
+              width: 70px;
+              height: 30px;
+              margin: -5px 0 0;
+              color: #ffffff;
+              font-size: 12px;
+              line-height: 30px;
+              text-align: center;
+            }
+          
+            .form-module .form {
+              display: none;
+              padding: 40px;
+            }
+            .form-module .form:nth-child(2) {
+              display: block;
+            }
+            .form-module h2 {
+              margin: 0 0 20px;
+              color: #33b5e5;
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 1;
+            }
+            .form-module input {
+              outline: none;
+              display: block;
+              width: 100%;
+              border: 1px solid #d9d9d9;
+              margin: 0 0 20px;
+              padding: 10px 15px;
+              font-weight: 400;
+              transition: 0.3s ease;
+            }
+            .form-module input:focus {
+              border: 1px solid #33b5e5;
+              color: #333333;
+            }
+             button {
+              font-family: "General Sans";
+              cursor: pointer;
+              background: #33b5e5;
+              width: 100%;
+              border: 0;
+              padding: 10px 15px;
+              font-size: 16px;
+              color: #ffffff;
+              transition: 0.3s ease;
+            }
+            .form-module button:hover {
+              background: #178ab4;
+            }
+            .form-module .cta {
+              font-family: "General Sans";
+              background: #f2f2f2;
+              border:1px solid #33b5e5;
+              width: 100%;
+              padding: 10px 15px;
+              color: #666666;
+              font-size: 16px;
+              text-align: center;
+              margin-top: 10px;
+            }
+            .form-module .cta a {
+              color: #333333;
+              text-decoration: none;
+            }  
+          
+             /* Success message */
+             .alert-success {
+               font-family: "General Sans";
+               font-size: 1rem;
+              
+               align-items: center;
+               justify-content: center;
+               display: flex;
+               height: 40px;
+               color: green;  /* Text color */
+           }
+           
+           /* Error message */
+           .alert-error {
+               font-family: "General Sans";
+               font-size: 1rem;
+               align-items: center;
+               justify-content: center;
+               display: flex;
+               border-radius: 4px;
+               height: 40px;
+               color: rgb(172, 53, 53);  /* Text color */
+               
+           }
+     </style>
+</head>
+<body>
+
+<div class="pen-title">
+    <h1>Flat Login Form</h1>
+    <span>Pen <i class='fa fa-paint-brush'></i> + <i class='fa fa-code'></i> by <a href='http://ahtishamyousaf.com'>Ahtisham Yousaf</a></span>
+</div>
+
+<!-- Form Module -->
+<!-- {% if not user.is_authenticated %} -->
+<div class="module form-module">
+   <div class="toggle">
+        {% if show_login %}
+        <a href="{% url 'Signup' %}"> New User</a> 
+        {% else %}
+        <a href="{% url 'login' %}"> login</a>
+
+        <!-- {% endif %} -->
+    </div>
+    
+    <!-- Login Form -->
+    {% if show_login %}
+        <div class="form login-form">
+            <h2>Login to your account</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {% if message.tags == 'success' %}alert-success{% elif message.tags == 'error' %}alert-error{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username"/>
+                <input type="password" name="password" placeholder="Password"/>
+                <button type="submit">Login</button>
+            </form>
+            <button class="cta">Forgot Password</button>
+        </div>
+    {% else %}
+        <!-- Registration Form -->
+        <div class="form registration-form">
+            <h2>Create an account</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {% if message.tags == 'success' %}alert-success{% elif message.tags == 'error' %}alert-error{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form method="POST" action="{% url 'Signup' %}">
+                {% csrf_token %}
+                {{ form_data.as_p }}
+                <!-- {{ form.name }}
+                {{ form.username }}
+                {{ form.email }}
+                {{ form.password1 }}
+                {{ form.password2 }} -->
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    {% endif %}
+</div>
+{% else %}
+<div class="pen-title">
+    <h1>Please Logout First!</h1>
+    <button><a href="">Logout</a></button>
+</div>
+{% endif %}
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src='{% static "js/backend.js" %}'></script>
+
+</body>
+</html>

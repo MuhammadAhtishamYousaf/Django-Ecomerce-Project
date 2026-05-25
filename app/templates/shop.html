@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  
+<section id="page-header">
+        <h2>#Stay Home</h2>
+        <p>Save more with coupons  &amp; up to 50% off!</p>
+</section>
+
+<div class="row" style="padding: 1%; background-color: black; margin: 2% 10%;border-radius: 10px;">
+
+    <form action="" method="get" style=" display: flex; justify-content: space-between; " >
+        <!-- {% csrf_token %} -->
+        <input type="text" name="prod_name" id="" value="" class="form-control" style="margin:0px 5px;">
+        <input type="submit" value="Search" class="btn btn-primary">
+    </form>
+</div>
+<section class="section-p1 product1">
+    <h2 style="background-color: rgb(226, 187, 136); padding: 1% 10%;border-radius: 10px;" >All VIPs</h2>
+    <p>Summer Collection New Mordern Design</p>
+    <div class="pro-container">
+        {% if prod_name %}
+        <h4>Data For : {{prod_name}} </h4>
+        {% endif %}
+        {% for d in page_obj %}
+              
+        <div class="pro">
+            {% comment %} {% if d.p_image != NULL %} {% endcomment %}
+            <img src="/media/{{d.p_image}}" alt="{{d.p_name}}">
+            {% comment %} {% endif %} {% endcomment %}
+            <div class="description">
+                <h5>{{d.p_name }} </h5> <!-- | slice:"0:5"  | safe | title | wordcount --> 
+                <h5>{{d.p_desc | safe }}</h5>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>{{d.p_price}}</h4>
+            </div>
+            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+        </div>
+
+        {% empty %}
+
+        <h3>No Data Found for : {{prod_name}} </h3>
+
+        {% endfor %}
+
+    </div>
+</section>
+
+<nav aria-label="..." style="width: 100%; justify-items: center; background-color:rgb(238, 205, 162);">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      
+    <li class="page-item">
+        <a class="page-link" href="/shop/?page=1" tabindex="-1">First</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="/shop/?page={{ page_obj.previous_page_number }}">Previous</a>
+    </li>
+
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      
+    <li class="page-item"><a class="page-link" href="/shop/?page={{num}}">{{num}}</a></li>
+
+    {% endfor %}
+
+
+    {% if page_obj.has_next %}
+      
+    <li class="page-item"><a class="page-link" href="/shop/?page={{page_obj.next_page_number}}">Next</a></li>
+
+    <li class="page-item"><a class="page-link" href="/shop/?page={{page_obj.paginator.num_pages}}">Last</a></li>
+
+    {% endif %}
+
+  </ul>
+</nav>
+            <!-- <div class="pro">
+                <img src="{% static 'imgs/f2.jpg' %}" alt="Product">
+                <div class="description">
+                    <h5>adidas</h5>
+                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$90.00</h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+           
+  
+{% endblock content %}

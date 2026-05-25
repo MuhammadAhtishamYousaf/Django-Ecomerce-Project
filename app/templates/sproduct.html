@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecomerse Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+     <section id="product-detail" class="section-p1">
+        <div class="single-pro-img">
+            <img src="home-images/f1.jpg" width="100%" id="MainImg" alt="MainImg">
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="home-images/f1.jpg" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="home-images/f2.jpg" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="home-images/f3.jpg" width="100%" class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="home-images/f4.jpg" width="100%" class="small-img" alt="">
+                </div>
+
+            </div>
+        </div>
+        <div class="single-pro-detail">
+            <h6>Home / T-Shirt</h6>
+            <h4>Men's Fasion T Shirts</h4>
+            <h2>$129.00</h2>
+            <select>
+                <option value="">Select Size</option>
+                <option value="">Small(34-36)</option>
+                <option value="">large (36-40)</option>
+                <option value="">Very Large (40-44)</option>
+            </select>
+            <input type="number" name="" id="" value="1">
+            <button class="white">Add To Cart <i class="fa-solid fa-arrow-right arrow"></i></button>
+            <h4>Product Details</h4>
+            <p>Traditionally, it has short sleeves and a round neckline, known as a crew neck, which lacks a collar. T-shirts are generally made of stretchy, light, and inexpensive fabric and are easy to clean.</p>
+        </div>
+     </section>
+     <section class="section-p1 product1">
+        <h2>Feature Products</h2>
+        <p>Summer Collection New Mordern Design</p>
+        <div class="pro-container">
+        <div class="pro">
+            <img src="home-images/n1.jpg" alt="Product">
+            <div class="description">
+                <h5>adidas</h5>
+                <h5>Cartoon Astronaut T-Shirts</h5>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>$90.00</h4>
+            </div>
+            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+            <img src="home-images/n2.jpg" alt="Product">
+            <div class="description">
+                <h5>adidas</h5>
+                <h5>Cartoon Astronaut T-Shirts</h5>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>$90.00</h4>
+            </div>
+            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+            <img src="home-images/n3.jpg" alt="Product">
+            <div class="description">
+                <h5>adidas</h5>
+                <h5>Cartoon Astronaut T-Shirts</h5>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>$90.00</h4>
+            </div>
+            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+            <img src="home-images/n4.jpg" alt="Product">
+            <div class="description">
+                <h5>adidas</h5>
+                <h5>Cartoon Astronaut T-Shirts</h5>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>$90.00</h4>
+            </div>
+            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+        </div>           
+        </div>
+     </section>
+  
+<script>
+  var MainImg =document.getElementById("MainImg");
+  var SmallImg =document.getElementsByClassName("small-img");
+
+  SmallImg[0].onclick=function(){
+    MainImg.src = SmallImg[0].src;
+  }
+   SmallImg[1].onclick=function(){
+    MainImg.src = SmallImg[1].src;
+  }
+  SmallImg[2].onclick=function(){
+    MainImg.src = SmallImg[2].src;
+  }
+  SmallImg[3].onclick=function(){
+    MainImg.src = SmallImg[3].src;
+  }
+</script>
+<script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

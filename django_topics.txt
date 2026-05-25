@@ -1,0 +1,56 @@
+1. How to Create a New Project in Django with . at the end
+folder structure:
+current dir/
+    project_name/
+    app_name/
+    manage.py
+    templates
+    static
+    media
+
+2. How to Run Development Server in Django
+3. Folder structure of a Django Application
+4. How to Migrate Default Migrations
+5. How to Create Superuser in Django Admin
+6. What are URLs & Views in Django
+7. How to Create URLs & Views in Django
+8. How to Create a Dynamic URL in Django
+9. Render an HTML Template as Response
+10. Passing Data From a Django View to a Template
+11. How to use the Django Template For Loop
+12. If Else Statement in Django Template
+13. How to use CSS, JavaScript & Images
+14. Common Header & Footer in Django
+15. How to use Extends and Include Template Tags
+16. How to use URL Template Tags
+17. How to Highlight Link in Django
+18. HTTP Request Methods (Get, Post, patch, delete, put) in Django  
+19. How to Implement a Form with Get Method
+20. Create Form using POST Method with CSRF Token
+21. How to Redirect Page in Django
+22. HTML Form Action URL in Django
+23. Django Form Tutorial For Beginners
+24. How to Build a Simple Calculator in Django
+25. Check Even or Odd Number Using Django Form
+26. How to Create Simple Marksheet in Django
+27. Manual Form Validation in Django
+28. What is Model - Models in Your Application
+29. Creating a Model in Django
+30. How to Get All Table Data
+31. How to Order a Query Set
+32. Django - Limiting Query Results Tutorial
+33. Custom Template Filter in Django
+34. Django TinyMCE Integration
+35. Marquee Tag for Display News
+36. Display News in Detail Page
+37. How to Reset Django Admin Password
+38. How does Filter Work in Django
+39. Auto SlugField in Django
+40. How To Add Pagination In Django
+41. Last Page Pagination & Number Counter
+42. Save Form Data to Database - Model Form
+43. File Upload with FileField in Django Model
+44. Displaying Uploaded Images in Template
+45. Setup Sending Email in Django Project
+
+

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="signup-container" style="margin:40px auto; max-width:520px; background:#ffffff; padding:26px; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.08);">
+    <h1 class="text-center my-5" style="font-size:22px; margin:0 0 18px 0; font-weight:700; color:#222;">Custom Registration Form</h1>
+
+    <form method="post" style="display:flex; flex-direction:column; gap:12px;">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-group" style="display:flex; flex-direction:column;">
+            <label style="font-weight:600; margin-bottom:6px; color:#333;">Name</label>
+            {{ form.name }}
+            {% if form.name.errors %}<div style="color:#c00; font-size:13px; margin-top:6px;">{{ form.name.errors }}</div>{% endif %}
+        </div>
+
+        <div class="form-group" style="display:flex; flex-direction:column;">
+            <label style="font-weight:600; margin-bottom:6px; color:#333;">Username</label>
+            {{ form.username }}
+            {% if form.username.errors %}<div style="color:#c00; font-size:13px; margin-top:6px;">{{ form.username.errors }}</div>{% endif %}
+        </div>
+
+        <div class="form-group" style="display:flex; flex-direction:column;">
+            <label style="font-weight:600; margin-bottom:6px; color:#333;">Email</label>
+            {{ form.email }}
+            {% if form.email.errors %}<div style="color:#c00; font-size:13px; margin-top:6px;">{{ form.email.errors }}</div>{% endif %}
+        </div>
+
+        <div class="form-group" style="display:flex; flex-direction:column;">
+            <label style="font-weight:600; margin-bottom:6px; color:#333;">Password</label>
+             {{ form.password }}
+            {% if form.password.errors %}<div style="color:#c00; font-size:13px; margin-top:6px;">{{ form.password.errors }}</div>{% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="padding:10px 14px; border-radius:10px; font-weight:600; background:#007bff; border:none; cursor:pointer;">
+            Signup
+        </button>
+
+        <a href="{% url 'login' %}" class="btn btn-primary" style="display:inline-block; text-align:center; text-decoration:none; padding:10px 14px; border-radius:10px; background:#6c757d; margin-top:6px; color:#fff;">
+            Login
+        </a>
+    </form>
+</div>
+{% endblock content %}

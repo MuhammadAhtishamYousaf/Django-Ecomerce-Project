@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="form_container" style="padding: 2% 20%; background-color: rgb(136, 133, 133); color: white">
+    <h1 style="text-align: center; color: white;">Marksheet</h1>
+
+  <form method = 'post'>
+        {% if error %}
+
+        <div class="alert alert-danger" role = alert>Please Enter The Value</div>
+        
+        {% endif %}
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Subject 01</label>
+            <input type="text" name='sub1' value="{{ sub1|default:'' }}" class="form-control">
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Subject 02</label>
+            <input type="text" name='sub2' value="{{ sub2|default:'' }}" class="form-control">
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Subject 03</label>
+            <input type="text" name='sub3' value="{{ sub3|default:'' }}" class="form-control">
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Subject 04</label>
+            <input type="text" name='sub4' value="{{ sub4|default:'' }}" class="form-control">
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Subject 05</label>
+            <input type="text" name='sub5' value="{{ sub5|default:'' }}" class="form-control">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Calculate</button>
+        
+  </form>
+     <br>
+        <div class="form-group">
+            <label>Total</label>
+            <input type="text" value="{{ total|default:'' }}" class="form-control">
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Percentage</label>
+            <input type="text" value="{{ perc|default:'' }}" class="form-control">
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Division</label>
+            <input type="text" value="{{ division|default:'' }}" class="form-control">
+        </div>
+        <br>
+</div>
+  
+{% endblock content %}

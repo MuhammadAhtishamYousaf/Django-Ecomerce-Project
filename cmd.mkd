@@ -1,0 +1,15 @@
+py manage.py startproject <projectname>
+py manage.py startapp <appname>
+py manage.py runserver <5555>
+py manage.py makemigrations
+py manage.py migrate
+py manage.py changepassword <username>
+
+
+
+
+
+manage.py : Command Line helper
+settings.py : Configuration and apps
+urls.py : URL Routes
+wsgi  / asgi : server entry points

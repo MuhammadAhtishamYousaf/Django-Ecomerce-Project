@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="form_container" style="margin: 0% 20%;">
+    <h1>Even | Odd</h1>
+  <form method = 'post'>
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Value</label>
+      <input type="text" name = 'val' class="form-control">
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Even | Odd</button>
+  </form>
+  <br>
+  {% if c %}
+  <label for="">Output</label>
+    
+  <input type="text" name="" id="" value="{{ c }}" class="form-control">
+  {% endif %}
+</div>
+{% endblock content %}
